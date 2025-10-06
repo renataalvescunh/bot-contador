@@ -7,6 +7,13 @@ Bot Contador
 </h1>
 <p align="center"> Monitore e controle facilmente o número de participantes dos seus grupos no WhatsApp. </p>
 
+  ## 📚 Sumário
+  - [Funcionalidades](#-funcionalidades)
+  - [Instalação](#-instalação)
+  - [Uso](#-uso)
+  - [Contribuição](#-contribuição)
+  - [Licença](#-licença)
+
 O **Bot Contador** é uma aplicação Node.js que automatiza a contagem e o monitoramento de membros em grupos do WhatsApp. O bot foi projetado para ser simples de configurar e executar, integrando-se diretamente ao seu grupo para fornecer relatórios e alertas em tempo real.
 
 ## 📝 Funcionalidades
