@@ -1,7 +1,3 @@
-// =====================================
-// 🤖 Bot-Contador Seguro para WhatsApp
-// =====================================
-
 // Importação de módulos
 const {
     Client,
