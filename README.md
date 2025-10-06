@@ -11,6 +11,7 @@ O **Bot Contador** é uma aplicação Node.js que automatiza a contagem e o moni
 
 
   ## 📚 Sumário
+  
   - [Funcionalidades](#funcionalidades)
   - [Instalação](#instalação)
   - [Uso](#uso)
