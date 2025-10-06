@@ -36,7 +36,7 @@ O **Bot Contador** é uma aplicação Node.js que automatiza a contagem e o moni
 
 1. Clone o repositório:
     ```bash
-    git clone https://github.com/seu-usuario/bot-contador.git
+    git clone https://github.com/renataalvescunh/bot-contador.git
     ```
 2. Instale as dependências:
     ```bash
