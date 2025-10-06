@@ -1,0 +1,16 @@
+{
+  "numero_alerta": "5511966594719",
+  "grupos_monitorados": [
+    {
+      "nome_grupo": "#5 Desenhando Urban Jungle",
+      "limite_membros": 900
+    },
+    {
+      "nome_grupo": "Grupo teste 2",
+      "limite_membros": 4
+    }
+  ],
+  
+  "relatorio_periodico_cron": "0 9 * * *"
+}
+
