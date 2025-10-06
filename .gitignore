@@ -1,0 +1,15 @@
+# Ignorar node_modules
+node_modules/
+
+# Ignorar variáveis de ambiente
+.env
+
+# Ignorar arquivos de log
+*.log
+
+# Ignorar configurações do VS Code
+.vscode/
+
+# Ignorar diretórios de build (exemplo)
+dist/
+build/

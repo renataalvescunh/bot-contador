@@ -1,6 +1,6 @@
 <h1 align="center" id="project_name">
   <br />
-  <img src="logo.png" alt="Logo" width="98px">
+  <img src="assets/logo.png" alt="Logo" width="74px">
   <br />
 Bot Contador
   <br />
@@ -26,17 +26,16 @@ O **Bot Contador** é uma aplicação Node.js que automatiza a contagem e o moni
     ```bash
     npm install
     ```
-3. Configure o arquivo `.env` com os dados do seu grupo e credenciais do WhatsApp.
+3. Configure o arquivo `config.json` com os dados do seu grupo e credenciais do WhatsApp. Ou, se preferir, edit o arquivo `.env`. 
 
 ## 📌 Uso
 
 Execute o bot com:
 
-
 ```bash
 node index.js
 ```
-O bot irá iniciar e começar a monitorar o grupo conforme as configurações definidas.
+O bot irá iniciar e começar a monitorar o grupo conforme as configurações definidas. 
 
 ## 💡 Contribuição
 

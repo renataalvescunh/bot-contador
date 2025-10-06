@@ -11,7 +11,7 @@ const qrcode = require('qrcode-terminal');
 const cron = require('node-cron');
 
 // Carrega as configurações do arquivo JSON
-const config = require('./config.json');
+const config = require('../config/config.json');
 
 // ⚙️ Configuração do cliente
 const client = new Client({
