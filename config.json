@@ -1,13 +1,13 @@
 {
-  "numero_alerta": "5511966594719",
+  "numero_alerta": "Número do Alerta",
   "grupos_monitorados": [
     {
-      "nome_grupo": "#5 Desenhando Urban Jungle",
-      "limite_membros": 900
+      "nome_grupo": "Grupo 1",
+      "limite_membros": 50
     },
     {
-      "nome_grupo": "Grupo teste 2",
-      "limite_membros": 4
+      "nome_grupo": "Grupo 2",
+      "limite_membros": 100
     }
   ],
   
