@@ -47,12 +47,18 @@ Siga os passos abaixo para colocar o bot em funcionamento.
 
 1. Clone o repositório:
 
-    ```git clone https://github.com/renataalvescunh/bot-contador.git```
+    ```
+    git clone https://github.com/renataalvescunh/bot-contador.git
+    ```
     
-    ```cd bot-contador```
+    ```
+    cd bot-contador
+    ```
 2. Instale as dependências:
 
-    ```npm install```
+    ```
+    npm install
+    ```
 
 3. Configure os grupos e alertas:
 
