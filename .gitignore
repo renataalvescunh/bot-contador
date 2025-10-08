@@ -1,15 +1,16 @@
-# Ignorar node_modules
+# Dependências
 node_modules/
 
-# Ignorar variáveis de ambiente
+# Arquivos de Sessão e Cache do WhatsApp Web JS
+.wwebjs_auth/
+.wwebjs_cache/
+
+# Arquivos de Ambiente (Segredos)
 .env
 
-# Ignorar arquivos de log
-*.log
+# Logs de depuração do NPM
+npm-debug.log*
 
-# Ignorar configurações do VS Code
-.vscode/
+# Configuração Pessoal
 
-# Ignorar diretórios de build (exemplo)
-dist/
-build/
+config/config.json

@@ -1,3 +1,7 @@
+// =====================================
+// 🤖 Bot-Contador para WhatsApp
+// =====================================
+
 // Importação de módulos
 const {
     Client,

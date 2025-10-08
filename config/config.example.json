@@ -1,0 +1,15 @@
+{
+  "numero_alerta": "55119XXXXXXXX",
+  "grupos_monitorados": [
+    {
+      "nome_grupo": "Nome Exato do Grupo 1",
+      "limite_membros": 250
+    },
+    {
+      "nome_grupo": "Grupo de Testes",
+      "limite_membros": 100
+    }
+  ],
+  "relatorio_periodico_cron": "0 9 * * *"
+}
+

@@ -1,9 +1,9 @@
 {
-  "numero_alerta": "5511",
+  "numero_alerta": "5511966594719",
   "grupos_monitorados": [
     {
       "nome_grupo": "Grupo 1",
-      "limite_membros": 50
+      "limite_membros": 3
     },
     {
       "nome_grupo": "Grupo 2",
