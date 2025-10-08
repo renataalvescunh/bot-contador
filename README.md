@@ -1,6 +1,6 @@
 <h1 align="center" id="project_name">
   <br />
-  <img src="assets/logo2.png" alt="Logo" width="74px">
+  <img src="assets/logo3.png" alt="Logo" width="74px">
   <br />
 Bot Contador
   <br />
