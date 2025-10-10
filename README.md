@@ -7,28 +7,32 @@ Bot Contador
 
 </h1>
 
-O **Bot Contador** é uma aplicação Node.js que automatiza a contagem e o monitoramento de membros em grupos do WhatsApp. O bot foi projetado para ser simples de configurar e executar, integrando-se diretamente ao seu grupo para fornecer relatórios e alertas em tempo real.
+<p align="center">
+O <strong>Bot Contador</strong> é uma aplicação Node.js que automatiza o monitoramento de membros em grupos do WhatsApp, enviando alertas e relatórios periódicos para manter o administrador informado.
+</p>
 
-
-  ## 📚 Sumário
-  
-  - [Funcionalidades](#-funcionalidades)
-  - [Tecnologias Utilizadas](#-tecnologias-utilizadas)
-  - [Pré-requisitos](#-pré-requisitos)
-  - [Instalação e Configuração](#-instalação-e-configuração)
-  - [Uso](#-uso)
-  - [Estrutura do Projeto](#-estrutura-do-projeto)
-  - [Contribuição](#-contribuição)
-  - [Licença](#-licença)
+## 📜 Sumário
+  
+- [✨ Funcionalidades](#-funcionalidades)
+- [🛠️ Tecnologias Utilizadas](#️-tecnologias-utilizadas)
+- [📋 Pré-requisitos](#-pré-requisitos)
+- [🚀 Instalação e Configuração](#-instalação-e-configuração)
+- [▶️ Executando o Bot](#️-executando-o-bot)
+  - [Modo Simples (via NPM)](#modo-simples-via-npm)
+  - [Modo Robusto 24/7 (via PM2)](#modo-robusto-247-via-pm2)
+- [📁 Estrutura do Projeto](#-estrutura-do-projeto)
+- [💡 Contribuição](#-contribuição)
+- [📄 Licença](#-licença)
 
 
 ## 📝 Funcionalidades
 
-- Contagem automática de membros do grupo;
-- Geração de relatórios em tempo real;
-- Configuração flexível de critérios de contagem;
-- Alertas automáticos quando o número de integrantes muda.
-
+-   **Monitoramento de Múltiplos Grupos**: Configure quantos grupos quiser, cada um com seu próprio limite de membros.
+-   **Alertas de Limite Atingido**: Envia uma notificação imediata via WhatsApp quando um grupo alcança o número de membros estipulado.
+-   **Relatórios Periódicos**: Receba resumos automáticos com a contagem de membros de todos os grupos monitorados em uma frequência personalizável (ex: todo dia às 9h).
+-   **Monitoramento de Atividade (Health Check)**: Envia uma mensagem periódica de "estou vivo" para confirmar que o bot continua online e funcionando.
+-   **Alerta de Desconexão**: Avisa o administrador caso a sessão do WhatsApp seja desconectada, permitindo uma rápida reconexão.
+-   **Autenticação Persistente**: Só é necessário escanear o QR Code uma vez. O bot se reconecta automaticamente nas inicializações seguintes.
 
 ## 🛠️ Tecnologias Utilizadas
 
@@ -85,14 +89,43 @@ Abra o arquivo config/config.example.json e edite as informações necessárias.
 
 ## 📌 Uso
 
-Execute o bot com:
+Existem duas formas de rodar o bot, uma simples para testes e outra opção, para deixá-lo funcionando 24/7.
 
-```bash
-node index.js
-```
+### Modo Simples (via-npm)
+
+    ```bash
+    node index.js
+    ```
+
 O bot irá iniciar e começar a monitorar o grupo conforme as configurações definidas. 
 
 Na primeira vez que executar, um QR Code aparecerá no terminal. Escaneie-o com o WhatsApp do número que será o bot. Nas próximas vezes, ele se conectará automaticamente.
+
+### Modo Robusto 24/7 (via PM2)
+
+O comando "PM2" mantém o bot rodando em segundo plano e o reinicia automaticamente em caso de falhas.
+
+1. Instale o PM2 (apenas uma vez):
+
+    ```
+    npm install pm2 -g
+    ```
+
+2. Inicie o bot com o PM2:
+
+    ```
+    pm2 start src/index.js --name bot-contador
+    ```
+
+### Comandos úteis do PM2:
+
+```pm2 logs bot-contador```: Ver os logs do bot em tempo real.
+
+```pm2 list```: Listar todos os processos gerenciados pelo PM2.
+
+```pm2 restart bot-contador```: Reiniciar o bot.
+
+```pm2 stop bot-contador```: Parar o bot.
 
 ## 📁 Estrutura do Projeto
 

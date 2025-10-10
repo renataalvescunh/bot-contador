@@ -10,6 +10,17 @@ const {
 const qrcode = require('qrcode-terminal');
 const cron = require('node-cron');
 
+// =====================================
+// 🥅 REDE DE SEGURANÇA (CATCH-ALL)
+// =====================================
+process.on('uncaughtException', (err, origin) => {
+    console.error(`❌ UM ERRO GRAVE OCORREU: ${err.message}`);
+    console.error(`Origem do erro: ${origin}`);
+    console.error(err.stack);
+    // O PM2 vai reiniciar o processo automaticamente.
+    process.exit(1);
+});
+
 // Carrega as configurações do arquivo JSON
 const config = require('../config/config.json');
 
@@ -22,6 +33,7 @@ const client = new Client({
     }
 });
 
+
 // 🔐 Gera QR code para login
 client.on('qr', qr => {
     console.log('📱 Escaneie este QR code para conectar o bot:');
@@ -33,8 +45,9 @@ client.on('qr', qr => {
 // 🚀 Quando o bot estiver pronto
 client.on('ready', () => {
     console.log('✅ Bot-Contador conectado e funcionando com segurança!');
-    // Agenda o envio de relatórios periódicos
+    // Agenda as tarefas
     agendarRelatorios();
+    agendarHealthCheck();
 });
 
 // -------------------------------------------------
@@ -98,6 +111,19 @@ function agendarRelatorios() {
     }
 }
 
+// Função para enviar um "pulso de vida" periodicamente
+function agendarHealthCheck() {
+    // MUDANÇA AQUI: '*/30 * * * *' significa "a cada 30 minutos"
+    cron.schedule('*/30 * * * *', () => {
+        const healthMessage = "💚 *Bot-Contador Health Check:* continuo online e monitorando.";
+        console.log("Enviando health check...");
+        enviarAlertaWpp(healthMessage);
+    });
+    // MUDANÇA AQUI: Mensagem de log atualizada
+    console.log('💓 Health checks agendados para rodar a cada 30 minutos.');
+}
+
+
 // -------------------------------------------------
 // 👂 EVENTOS DO WHATSAPP
 // -------------------------------------------------
@@ -110,6 +136,13 @@ client.on('group_join', async (notification) => {
 client.on('group_leave', async (notification) => {
     const chat = await notification.getChat();
     console.log(`📉 Alguém saiu do grupo "${chat.name}".`);
+});
+
+// 🔌 Quando a sessão do bot for desconectada pelo WhatsApp
+client.on('disconnected', (reason) => {
+    console.log('❌ Bot foi desconectado! Motivo:', reason);
+    // Envia um alerta final para o seu número avisando da desconexão
+    enviarAlertaWpp('🔴 ATENÇÃO: O Bot-Contador foi desconectado e precisa ser reiniciado!');
 });
 
 
