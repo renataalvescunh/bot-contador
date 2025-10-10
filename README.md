@@ -93,9 +93,7 @@ Existem duas formas de rodar o bot, uma simples para testes e outra opção, par
 
 ### Modo Simples (via-npm)
 
-    ```bash
     node index.js
-    ```
 
 O bot irá iniciar e começar a monitorar o grupo conforme as configurações definidas. 
 
