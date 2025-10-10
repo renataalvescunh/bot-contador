@@ -13,19 +13,19 @@ O <strong>Bot Contador</strong> é uma aplicação Node.js que automatiza o moni
 
 ## 📜 Sumário
   
-- [✨ Funcionalidades](#-funcionalidades)
-- [🛠️ Tecnologias Utilizadas](#️-tecnologias-utilizadas)
-- [📋 Pré-requisitos](#-pré-requisitos)
-- [🚀 Instalação e Configuração](#-instalação-e-configuração)
-- [▶️ Executando o Bot](#️-executando-o-bot)
+- [Funcionalidades](#-funcionalidades)
+- [Tecnologias Utilizadas](#️-tecnologias-utilizadas)
+- [Pré-requisitos](#-pré-requisitos)
+- [Instalação e Configuração](#-instalação-e-configuração)
+- [Executando o Bot](#️-executando-o-bot)
   - [Modo Simples (via NPM)](#modo-simples-via-npm)
-  - [Modo Robusto 24/7 (via PM2)](#modo-robusto-247-via-pm2)
-- [📁 Estrutura do Projeto](#-estrutura-do-projeto)
-- [💡 Contribuição](#-contribuição)
-- [📄 Licença](#-licença)
+  - [Modo 24/7 (via PM2)](#modo-247-via-pm2)
+- [Estrutura do Projeto](#-estrutura-do-projeto)
+- [Contribuição](#-contribuição)
+- [Licença](#-licença)
 
 
-## 📝 Funcionalidades
+## ✨ Funcionalidades
 
 -   **Monitoramento de Múltiplos Grupos**: Configure quantos grupos quiser, cada um com seu próprio limite de membros.
 -   **Alertas de Limite Atingido**: Envia uma notificação imediata via WhatsApp quando um grupo alcança o número de membros estipulado.
@@ -45,7 +45,7 @@ O <strong>Bot Contador</strong> é uma aplicação Node.js que automatiza o moni
 Antes de começar, certifique-se de ter o [Node.js](https://nodejs.org/) (versão 16 ou superior) instalado em sua máquina.
 
 
-## 🚀 Instalação e Configuração
+## 📐 Instalação e Configuração
 
 Siga os passos abaixo para colocar o bot em funcionamento.
 
@@ -68,7 +68,7 @@ Siga os passos abaixo para colocar o bot em funcionamento.
 
 Abra o arquivo config/config.example.json e edite as informações necessárias. 
 
-📌 IMPORTANTE: modifique o nome do arquivo para config.json, para que ele possa funcionar corretamente.
+🚨IMPORTANTE:🚨 modifique o nome do arquivo para config.json, para que ele possa funcionar corretamente.
 
 ```
 {
@@ -101,7 +101,7 @@ O bot irá iniciar e começar a monitorar o grupo conforme as configurações de
 
 Na primeira vez que executar, um QR Code aparecerá no terminal. Escaneie-o com o WhatsApp do número que será o bot. Nas próximas vezes, ele se conectará automaticamente.
 
-### Modo Robusto 24/7 (via PM2)
+### Modo 24/7 (via PM2)
 
 O comando "PM2" mantém o bot rodando em segundo plano e o reinicia automaticamente em caso de falhas.
 
@@ -142,9 +142,9 @@ BOT-CONTADOR/
 └── README.md
 ```
 
-## 💡 Contribuição
+## 💌 Contribuição
 
-Contribuições são bem-vindas! Abra uma issue ou envie um pull request para sugerir melhorias.
+Contribuições são extremamente bem-vindas! Se tiver interesse, por favor, abra uma issue ou envie um pull request para sugerir melhorias. Será uma honra recebê-lás! 
 
 ## 📄 Licença
 
