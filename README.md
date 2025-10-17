@@ -1,49 +1,47 @@
 <h1 align="center" id="project_name">
-  <br />
-  <img src="assets/icon-wppbot.png" alt="Logo" width="114px">
-  <br />
+  <br />
+  <img src="public/assets/icon-wppbot.png" alt="Logo" width="114px">
+  <br />
 Bot Contador
-  <br />
-
+  <br />
 </h1>
 
 <p align="center">
-O <strong>Bot Contador</strong> é uma aplicação Node.js que automatiza o monitoramento de membros em grupos do WhatsApp, enviando alertas e relatórios periódicos para manter o administrador informado.
+O <strong>Bot Contador</strong> é uma aplicação Node.js que automatiza o monitoramento de membros em grupos do WhatsApp, com um painel de controle web para visualização em tempo real.
 </p>
 
 ## 📜 Sumário
-  
-- [Funcionalidades](#-funcionalidades)
-- [Tecnologias Utilizadas](#️-tecnologias-utilizadas)
-- [Pré-requisitos](#-pré-requisitos)
-- [Instalação e Configuração](#-instalação-e-configuração)
-- [Executando o Bot](#️-executando-o-bot)
+  
+- [✨ Funcionalidades](#-funcionalidades)
+- [🛠️ Tecnologias Utilizadas](#️-tecnologias-utilizadas)
+- [📋 Pré-requisitos](#-pré-requisitos)
+- [🚀 Instalação e Configuração](#-instalação-e-configuração)
+- [▶️ Executando o Bot](#️-executando-o-bot)
   - [Modo Simples (via NPM)](#modo-simples-via-npm)
+  - [Modo Fácil (Windows)](#modo-fácil-windows)
   - [Modo 24/7 (via PM2)](#modo-247-via-pm2)
-- [Estrutura do Projeto](#-estrutura-do-projeto)
-- [Contribuição](#-contribuição)
-- [Licença](#-licença)
+- [📁 Estrutura do Projeto](#-estrutura-do-projeto)
+- [💌 Contribuição](#-contribuição)
+- [📄 Licença](#-licença)
 
 
 ## ✨ Funcionalidades
 
+-   **Painel de Controle Web**: Interface gráfica para visualizar o status do bot, QR Code de conexão e logs em tempo real.
 -   **Monitoramento de Múltiplos Grupos**: Configure quantos grupos quiser, cada um com seu próprio limite de membros.
 -   **Alertas de Limite Atingido**: Envia uma notificação imediata via WhatsApp quando um grupo alcança o número de membros estipulado.
--   **Relatórios Periódicos**: Receba resumos automáticos com a contagem de membros de todos os grupos monitorados em uma frequência personalizável (ex: todo dia às 9h).
--   **Monitoramento de Atividade (Health Check)**: Envia uma mensagem periódica de "estou vivo" para confirmar que o bot continua online e funcionando.
--   **Alerta de Desconexão**: Avisa o administrador caso a sessão do WhatsApp seja desconectada, permitindo uma rápida reconexão.
--   **Autenticação Persistente**: Só é necessário escanear o QR Code uma vez. O bot se reconecta automaticamente nas inicializações seguintes.
+-   **Relatórios Periódicos**: Receba resumos automáticos com a contagem de membros de todos os grupos monitorados.
+-   **Monitoramento de Atividade (Health Check)**: Envia uma mensagem periódica de "estou vivo" para confirmar que o bot continua online.
+-   **Autenticação Persistente**: A sessão é salva, permitindo que o bot se reconecte automaticamente sem precisar de um novo QR Code.
 
 ## 🛠️ Tecnologias Utilizadas
 
--   [Node.js](https://nodejs.org/)
--   [whatsapp-web.js](https://github.com/pedroslopez/whatsapp-web.js)
--   [node-cron](https://github.com/node-cron/node-cron)
+-   **Backend**: [Node.js](https://nodejs.org/), [Express.js](https://expressjs.com/pt-br/), [Socket.IO](https://socket.io/), [whatsapp-web.js](https://github.com/pedroslopez/whatsapp-web.js), [node-cron](https://github.com/node-cron/node-cron)
+-   **Frontend**: HTML5, CSS3, JavaScript (Vanilla)
 
 ## 📋 Pré-requisitos
 
 Antes de começar, certifique-se de ter o [Node.js](https://nodejs.org/) (versão 16 ou superior) instalado em sua máquina.
-
 
 ## 📐 Instalação e Configuração
 
@@ -89,7 +87,7 @@ Abra o arquivo config/config.example.json e edite as informações necessárias.
 
 ## 📌 Uso
 
-Existem duas formas de rodar o bot, uma simples para testes e outra opção, para deixá-lo funcionando 24/7.
+Após a configuração, você pode iniciar a aplicação de três formas:
 
 ### Modo Simples (via-npm)
 
@@ -98,6 +96,20 @@ Existem duas formas de rodar o bot, uma simples para testes e outra opção, par
 O bot irá iniciar e começar a monitorar o grupo conforme as configurações definidas. 
 
 Na primeira vez que executar, um QR Code aparecerá no terminal. Escaneie-o com o WhatsApp do número que será o bot. Nas próximas vezes, ele se conectará automaticamente.
+
+### Modo Fácil (Windows)
+
+A forma mais simples para usuários não-técnicos.
+
+1. Inicie: Dê um duplo-clique no arquivo LIGAR_BOT.bat (no Windows) ou execute o comando npm start no terminal.
+
+2. Aguarde: O bot irá iniciar e você verá mensagens de log no terminal. Isso leva em média 30s.
+
+3. Acesse o painel de controle: Abra o navegador e vá para http://localhost:3000 para acessar o painel do bot.
+
+4. Conecte ao WhatsApp: No painel de controle ou no terminal, escaneie o QR Code exibido para conectar o bot à sua conta do WhatsApp.
+
+5. Monitore a atividade: Acompanhe os logs e os alertas sobre a contagem de membros diretamente no painel.
 
 ### Modo 24/7 (via PM2)
 
@@ -129,14 +141,20 @@ O comando "PM2" mantém o bot rodando em segundo plano e o reinicia automaticame
 
 ```
 BOT-CONTADOR/
-├── config/
-│   └── config.json       # Arquivo de configurações
-├── node_modules/         # Dependências do projeto
+├── config/             # Arquivos de configuração do bot
+├── node_modules/       # Dependências do projeto
+├── public/             # Arquivos do Frontend (acessíveis pelo navegador)
+│   ├── assets/         # Imagens e ícones
+│   ├── client.js       # Lógica do frontend (Socket.IO)
+│   ├── index.html      # Estrutura da página
+│   ├── about.html      # Estrutura da página
+│   ├── contact.html    # Estrutura da página
+│   └── styles.css      # Estilos da página
 ├── src/
-│   └── index.js          # Lógica principal do bot
-├── .gitignore            # Arquivos ignorados pelo Git
-├── package-lock.json
-├── package.json
+│   └── index.js        # Lógica do Backend (Servidor e Bot)
+├── .gitignore          # Arquivos ignorados pelo Git
+├── LIGAR_BOT.bat       # Atalho para iniciar no Windows
+├── package.json        # Dependências e scripts
 └── README.md
 ```
 

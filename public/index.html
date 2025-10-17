@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel do Bot-Contador</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode-generator/qrcode.js"> </script>
+    <script src="client.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-title">
+                <img src="assets/icon-wppbot.png" alt="Bot-Contador Logo" class="header-logo">
+                <h1>Bot-Contador</h1>
+            </div>
+            <nav class="nav-bar">
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="about.html">Sobre</a></li>
+                    <li><a href="contact.html">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="main-container">
+            <p class="subtitle">O seu assistente para monitoramento de grupos no WhatsApp.</p>
+
+            <section class="connection-panel">
+                <div id="login-view">
+                    <h2>Conecte seu Bot</h2>
+                    <p>Escaneie o QR Code abaixo com o WhatsApp do celular que será o bot.</p>
+                    <div id="qrcode-container">
+                        <div id="qrcode"></div>
+                    </div>
+                </div>
+
+                <div id="connected-view" style="display: none;">
+                    <h2>Conectado com Sucesso!</h2>
+                    <img src="/assets/icon-wppbot.png" alt="Bot Conectado" width="100px">
+                    <p>O bot está online e monitorando os grupos. Acompanhe a atividade nos logs abaixo.</p>
+                </div>
+
+                <div id="status-container">
+                    <p>Status: <strong id="status-text">🔴 Desconectado</strong></p>
+                </div>
+
+                <div id="logs-container">
+                    <h3>Acompanhe os Logs em tempo real:</h3>
+                    <pre id="logs"></pre>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="client.js" defer></script>
+
+    <footer>
+        <div class="footer-container">
+            <p>Dúvidas ou problemas? <a href="#">Entre em contato.</a></p>
+            <p>&copy; 2025 Bot-Contador. Todos os direitos reservados |
+                Desenvolvido por <a href="https://github.com/renataalvescunh" target="_blank">Renata Alves Cunha</a>.
+            </p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

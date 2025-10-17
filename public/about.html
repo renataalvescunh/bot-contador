@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel do Bot-Contador</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode-generator/qrcode.js"> </script>
+    <script src="client.js" defer></script>
+</head>
+
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="logo-title">
+                <img src="assets/icon-wppbot.png" alt="Bot-Contador Logo" class="header-logo">
+                <h1>Bot-Contador</h1>
+            </div>
+            <nav class="nav-bar">
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="about.html">Sobre</a></li>
+                    <li><a href="contact.html">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="about-section">
+            <div class="about-container">
+                <h2>Sobre</h2>
+                <p>O Bot-Contador é uma ferramenta desenvolvida para auxiliar administradores de grupos no WhatsApp a monitorar a
+                quantidade de membros em seus grupos. Com ele, você pode automatizar o acompanhamento do número de integrantes,
+                facilitando a gestão e o controle do crescimento do grupo.</p>
+                <p> Leia mais sobre o projeto no <a href="https://github.com/renataalvescunh/bot-contador" target="_blank">GitHub</a>.</p>
+            </div>
+        <div class="passo-a-passo">
+            <h2>Como começar a usar?</h2>
+            <button id="toggle-passo" class="toggle-btn">Mostrar passo a passo?</button>
+        
+            <div id="passo-content" class="passo-content">
+                <ol>
+                    <li><strong>Clone o repositório:</strong> Baixe o código-fonte do Bot-Contador do GitHub.</li>
+                    <li><strong>Instale as dependências:</strong> Use o comando <code>npm install</code> para instalar todas as
+                        dependências necessárias.</li>
+                    <li><strong>Configure o bot:</strong> Edite o arquivo config/config.example.json para ajustar os grupos
+                        monitorados, o número de alerta e os limites.</li>
+                    <li><strong>Inicie o bot:</strong> Dê um duplo-clique no arquivo LIGAR_BOT.bat (no Windows) ou execute o
+                        comando npm start no terminal.</li>
+                    <li><strong>Aguarde:</strong> O bot irá iniciar e você verá mensagens de log no terminal. Isso leva em média
+                        30s.</li>
+                    <li><strong>Acesse o painel de controle:</strong> Abra o navegador e vá para
+                        <code>http://localhost:3000</code> para acessar o painel do bot.</li>
+                    <li><strong>Conecte ao WhatsApp:</strong> No painel de controle ou no terminal, escaneie o QR Code exibido
+                        para conectar o bot à sua conta do WhatsApp.</li>
+                    <li><strong>Monitore a atividade:</strong> Acompanhe os logs e os alertas sobre a contagem de membros
+                        diretamente no painel.</li>
+                </ol>
+            </div><button id="toggle-video" class="toggle-btn">Mostrar vídeo de tutorial?</button>
+            
+            <div id="video-content" class="video-content">
+                <video width="600" controls>
+                    <source src="assets/bot-contador-demo.mp4" type="video/mp4">
+                    Seu navegador não suporta o elemento de vídeo.
+                </video>
+        </div>
+<div class="video-tutorial">
+   
+    </div>
+</div>
+    </section>
+
+    </main>
+ 
+
+
+    <footer>
+        <div class="footer-container">
+            <p>Dúvidas ou problemas? <a href="#">Entre em contato.</a></p>
+            <p>&copy; 2025 Bot-Contador. Todos os direitos reservados |
+                Desenvolvido por <a href="https://github.com/renataalvescunh" target="_blank">Renata Alves Cunha</a>.
+            </p>
+        </div>
+    </footer>
+<script>
+        const toggleBtn = document.getElementById('toggle-passo');
+            const passoContent = document.getElementById('passo-content');
+
+            toggleBtn.addEventListener('click', () => {
+                passoContent.classList.toggle('show');
+
+                toggleBtn.textContent = passoContent.classList.contains('show')
+                    ? 'Ocultar passo a passo'
+                    : 'Mostrar passo a passo';
+            });
+
+            // Vídeo
+            const toggleVideoBtn = document.getElementById('toggle-video');
+            const videoContent = document.getElementById('video-content');
+
+            toggleVideoBtn.addEventListener('click', () => {
+                videoContent.classList.toggle('show');
+
+                toggleVideoBtn.textContent = videoContent.classList.contains('show')
+                    ? 'Ocultar vídeo'
+                    : 'Mostrar vídeo';
+            });
+
+                document.querySelectorAll('.passo-a-passo li').forEach(item => {
+                        item.addEventListener('click', () => {
+                            item.classList.toggle('checked');
+                        });
+                    });
+</script>
+
+</body>
+
+</html>

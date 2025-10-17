@@ -1,0 +1,454 @@
+/* +----------------------------------------------------------------------+
+|           PAINEL DE ESTILOS E BOM GOSTO - BOT CONTADOR                |
+| ----------------------------------------------------------------------- |
+|  "Todos os seres vivos tremem diante da violência. Todos temem a morte, |
+|    todos amam a vida. Projete você mesmo em todas as criaturas. Então,  |
+|    a quem você poderá ferir? Que mal você poderá fazer?"                |
++-----------------------------------------------------------------------+*/
+
+/* --- Configurações Globais e Animação de Fundo --- */
+html {
+    background: linear-gradient(270deg, #dff8dd, #bee0ba, #cefde3, #bef8b9, #d1f7d3);
+    background-size: 1000% 1000%;
+    animation: gradientBG 10s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- Estilos do Header --- */
+header {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+    position: sticky;
+    /* Efeito de header que "gruda" no topo */
+    top: 0;
+    z-index: 10;
+}
+
+.header-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-title {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-title img {
+    display: block;
+}
+
+.logo-title h1 {
+    margin: 0;
+    font-size: 1.9em;
+    color: #222;
+
+}
+
+.header-logo {
+    width: 50px;
+    height: auto;
+}
+
+header h1 {
+    font-size: 1.8em;
+    color: #2c2c2c;
+}
+
+.nav-bar ul {
+    display: flex;
+    list-style: none;
+    gap: 40px;
+    /* Espaçamento entre os links */
+}
+
+.nav-bar a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    font-size: 1.1em;
+    padding-bottom: 5px;
+    border-bottom: 2px solid transparent;
+    /* Efeito de sublinhado sutil */
+    transition: all 0.3s ease;
+}
+
+.nav-bar a:hover {
+    color: #007BFF;
+    border-bottom-color: #007BFF;
+}
+
+/* --- Estilos do Conteúdo Principal --- */
+main {
+    flex-grow: 1;
+    width: 100%;
+    padding: 40px 0;
+}
+
+.main-container {
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.subtitle {
+    font-size: 1.4em;
+    color: #555;
+    margin-bottom: 40px;
+}
+
+.connection-panel {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+#qrcode-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+#status-container {
+    margin-top: 20px;
+    font-size: 1.1em;
+}
+
+#logs-container {
+    margin-top: 30px;
+    text-align: left;
+}
+
+#logs-container h3 {
+    padding-bottom: 20px;
+    font-size: 1.3em;
+}
+
+#logs {
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    min-height: 200px;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    color: #444;
+}
+
+/* Estilo para mensagens de log */
+.log-message {
+    margin-bottom: 10px;
+    line-height: 1.4;
+}   
+
+/* Estilo para mensagens de erro */
+.log-error {
+    color: #D8000C;
+    background-color: #FFBABA;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+/* Página de Sobre */
+
+
+
+.about-section {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: left;
+    padding-top: 50px;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    
+}
+.about-section h2 {
+    font-size: 2.1em;
+    margin-bottom: 20px;
+    color: #222;
+}
+.about-section p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.passo-a-passo {
+    margin-top: 30px;
+}
+
+.passo-a-passo h3 {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.passo-a-passo ol {
+    padding-left: 20px;
+}
+
+.passo-a-passo li {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    color: #444;
+    line-height: 1.4;
+        text-align: left;
+}
+
+.video-tutorial {
+    margin-top: 40px;
+    text-align: center;
+}
+
+/* Oculta o conteúdo inicialmente */
+
+.passo-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out, opacity 0.5s ease;
+    opacity: 0;
+}
+
+/* Quando visível */
+.passo-content.show {
+    max-height: 1000px;
+    opacity: 1;
+}
+
+.toggle-btn {
+    margin-bottom: 15px;
+    padding: 10px 15px;
+    background-color: #247e51;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.toggle-btn:hover {
+    background-color: #1e5b3c;
+}
+
+.video-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out, opacity 0.5s ease;
+    opacity: 0;
+}
+
+.video-content.show {
+    max-height: 1000px;
+    opacity: 1;
+}
+
+
+
+
+.passo-a-passo li {
+    counter-increment: passo;
+    margin-bottom: 20px;
+    margin-top: 30px;
+    background-color: #f0f0f0;
+    padding: 15px 20px;
+    border-radius: 8px;
+    position: relative;
+    font-size: 1.05em;
+    color: #333;
+}
+
+.passo-a-passo li strong {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1.1em;
+    color: #222;
+}
+.passo-a-passo li:hover {
+    background-color: #d8f5dc;
+    cursor: pointer;
+}
+
+.passo-a-passo li:hover::before {
+    content: "✅";
+    color: #1b5e20;
+    position: absolute;
+        left: 270px;}
+
+.passo-a-passo li:active {
+    transform: scale(0.98);
+}
+
+.passo-a-passo li.checked {
+    background-color: #d8f5dc;
+}
+
+.passo-a-passo li.checked::before {
+    content: "✅";
+    color: #1b5e20;
+    position: absolute;
+        left: 270px;
+}
+
+/* --- Estilos do links --- */
+.about-container a {
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: 600;
+}
+.about-container a:hover {
+    text-decoration: underline;
+}
+
+/* contato */
+
+.contact-section {
+    padding: 60px 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+}
+
+.contact-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.contact-container h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #1e293b;
+}
+
+.contact-container p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    color: #475569;
+}
+
+.contact-container a {
+    font-size: 2em;
+    margin-bottom: 15px;
+    color: #334155;
+    text-decoration: none;
+}
+
+.contact-container a:hover {
+    color: #ffffff;
+    padding: 15px;
+    background-color: #54e25e;
+    border-radius: 50px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.contact-info {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    justify-content: center;
+
+}
+
+/* Lista de informações de contato */
+.contact-info {
+    list-style: none;
+    padding: 0;
+    font-size: 1.1em;
+}
+
+/* Estilo individual dos itens de contato */
+.contact-info li {
+    margin-bottom: 15px;
+}
+
+/* Link de email */
+.contact-info a {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+    color: #1e40af;
+    text-decoration: underline;
+}
+
+/* --- Estilos do Footer --- */
+footer {
+    width: 100%;
+    background-color: rgba(240, 240, 240, 0.9);
+    padding: 20px 0;
+    text-align: center;
+    border-top: 1px solid #ddd;
+}
+
+.footer-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+footer p {
+    margin: 5px 0;
+    color: #555;
+    font-size: 0.9em;
+}
+
+footer a {
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
