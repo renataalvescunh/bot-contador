@@ -33,6 +33,7 @@ O <strong>Bot Contador</strong> é uma aplicação Node.js que automatiza o moni
 -   **Relatórios Periódicos**: Receba resumos automáticos com a contagem de membros de todos os grupos monitorados.
 -   **Monitoramento de Atividade (Health Check)**: Envia uma mensagem periódica de "estou vivo" para confirmar que o bot continua online.
 -   **Autenticação Persistente**: A sessão é salva, permitindo que o bot se reconecte automaticamente sem precisar de um novo QR Code.
+- **Desafio de Performance**: O sistema foi arquitetado para gerenciar picos de alta demanda, suportando a entrada massiva de membros (estimado em 3-5 RPS) com o uso de lógica de processamento assíncrono em Node.js para garantir a estabilidade do serviço.
 
 ## 🛠️ Tecnologias Utilizadas
 
