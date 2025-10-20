@@ -92,7 +92,12 @@ Após a configuração, você pode iniciar a aplicação de três formas:
 
 ### Modo Simples (via-npm)
 
-    node index.js
+    npm start
+
+ou
+
+    node src/index.js
+    
 
 O bot irá iniciar e começar a monitorar o grupo conforme as configurações definidas. 
 
