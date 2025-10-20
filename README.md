@@ -20,6 +20,7 @@ O <strong>Bot Contador</strong> é uma aplicação Node.js que automatiza o moni
   - [Modo Simples (via NPM)](#modo-simples-via-npm)
   - [Modo Fácil (Windows)](#modo-fácil-windows)
   - [Modo 24/7 (via PM2)](#modo-247-via-pm2)
+  - [Modo Portátil (sem instalar Node.js)](#modo-portátil-sem-instalar-nodejs)
 - [📁 Estrutura do Projeto](#-estrutura-do-projeto)
 - [💌 Contribuição](#-contribuição)
 - [📄 Licença](#-licença)
@@ -42,7 +43,8 @@ O <strong>Bot Contador</strong> é uma aplicação Node.js que automatiza o moni
 
 ## 📋 Pré-requisitos
 
-Antes de começar, certifique-se de ter o [Node.js](https://nodejs.org/) (versão 16 ou superior) instalado em sua máquina.
+Antes de começar, certifique-se de ter o [Node.js](https://nodejs.org/) (versão 16 ou superior) instalado em sua máquina. Porém, se você usa utiliza um usuário sem permissão do admnistrador, pule essa parte e a instalação do  ```npm install```,  e continue no - [Modo Portátil (sem instalar Node.js)](#modo-portátil-sem-instalar-nodejs), ideial para esse caso, onde o Node.js portátil está instalado e configurado para fazer o bot funcionar mesmo sem a permissão.
+
 
 ## 📐 Instalação e Configuração
 
@@ -133,6 +135,14 @@ O comando "PM2" mantém o bot rodando em segundo plano e o reinicia automaticame
     pm2 start src/index.js --name bot-contador
     ```
 
+### Modo Portátil (sem instalar Node.js):
+
+Ideial para usuários sem permissão de admnistrador. Siga os passos:
+
+1. Execute o arquivo ```iniciar-portatil.bat```, dentro da basta baixada;
+
+2. Aguarde o QR Code e acesse o painel normalmente.
+
 ### Comandos úteis do PM2:
 
 ```pm2 logs bot-contador```: Ver os logs do bot em tempo real.
@@ -149,6 +159,10 @@ O comando "PM2" mantém o bot rodando em segundo plano e o reinicia automaticame
 BOT-CONTADOR/
 ├── config/             # Arquivos de configuração do bot
 ├── node_modules/       # Dependências do projeto
+├── node-portatil/          # Versão portátil do Node.js (Standalone Binary)
+│   ├── node.exe            # Executável do Node
+│   ├── npm                 # Gerenciador de pacotes
+│   └── ...                 # Outros arquivos do binário autônomo
 ├── public/             # Arquivos do Frontend (acessíveis pelo navegador)
 │   ├── assets/         # Imagens e ícones
 │   ├── client.js       # Lógica do frontend (Socket.IO)
@@ -159,7 +173,8 @@ BOT-CONTADOR/
 ├── src/
 │   └── index.js        # Lógica do Backend (Servidor e Bot)
 ├── .gitignore          # Arquivos ignorados pelo Git
-├── LIGAR_BOT.bat       # Atalho para iniciar no Windows
+├── iniciar-bot-contador.bat       # Atalho para iniciar no Windows
+├── iniciar-bot-portatil.bat       # Script para iniciar o bot com Node portátil (sem instalar nada)
 ├── package.json        # Dependências e scripts
 └── README.md
 ```
