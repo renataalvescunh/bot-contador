@@ -20,7 +20,6 @@ O <strong>Bot Contador</strong> é uma aplicação Node.js que automatiza o moni
   - [Modo Simples (via NPM)](#modo-simples-via-npm)
   - [Modo Fácil (Windows)](#modo-fácil-windows)
   - [Modo 24/7 (via PM2)](#modo-247-via-pm2)
-  - [Modo Portátil (sem instalar Node.js)](#modo-portátil-sem-instalar-nodejs)
 - [📁 Estrutura do Projeto](#-estrutura-do-projeto)
 - [💌 Contribuição](#-contribuição)
 - [📄 Licença](#-licença)
@@ -43,7 +42,7 @@ O <strong>Bot Contador</strong> é uma aplicação Node.js que automatiza o moni
 
 ## 📋 Pré-requisitos
 
-Antes de começar, certifique-se de ter o [Node.js](https://nodejs.org/) (versão 16 ou superior) instalado em sua máquina. Porém, se você usa utiliza um usuário sem permissão do admnistrador, pule essa parte e a instalação do  ```npm install```,  e continue no - [Modo Portátil (sem instalar Node.js)](#modo-portátil-sem-instalar-nodejs), ideial para esse caso, onde o Node.js portátil está instalado e configurado para fazer o bot funcionar mesmo sem a permissão.
+Antes de começar, certifique-se de ter o [Node.js](https://nodejs.org/) (versão 16 ou superior) instalado em sua máquina.
 
 
 ## 📐 Instalação e Configuração
@@ -134,14 +133,6 @@ O comando "PM2" mantém o bot rodando em segundo plano e o reinicia automaticame
     ```
     pm2 start src/index.js --name bot-contador
     ```
-
-### Modo Portátil (sem instalar Node.js):
-
-Ideial para usuários sem permissão de admnistrador. Siga os passos:
-
-1. Execute o arquivo ```iniciar-portatil.bat```, dentro da basta baixada;
-
-2. Aguarde o QR Code e acesse o painel normalmente.
 
 ### Comandos úteis do PM2:
 
