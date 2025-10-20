@@ -62,5 +62,16 @@ echo.
 rem Garante que o script rode a partir da pasta onde ele esta.
 cd /d "%~dp0"
 
-rem Inicia o servidor do bot.
+echo.
+echo Tentando iniciar o servidor do bot com NPM START...
+echo ----------------------------------------------------
+
+rem Tenta iniciar o servidor do bot.
 npm start
+
+rem VAI PAUSAR AQUI E NAO VAI FECHAR
+echo.
+echo ==========================================================
+echo O BOT FALHOU AO INICIAR! POR FAVOR, LEIA A MENSAGEM DE ERRO ACIMA.
+echo Pressione qualquer tecla para fechar...
+pause

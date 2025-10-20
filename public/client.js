@@ -13,13 +13,19 @@ let isFirstLog = true;
 
 // --- OUVINTES DE EVENTOS DO BOT ---
 
-socket.on('qr_code', (qr) => {
-    console.log('QR Code recebido!');
+// Quando receber um QR Code do bot
+socket.on('qr_code', (qrData) => { 
+    console.log('Recebido QR Code:', qrData);
     qrcodeContainer.innerHTML = '';
-    const qrCode = qrcode(0, 'M');
-    qrCode.addData(qr);
-    qrCode.make();
-    qrcodeContainer.innerHTML = qrCode.createImgTag(5);
+
+    const qrInstance = new QRCode(qrcodeContainer, {
+        text: qrData, // O dado (string) do QR Code
+        width: 150,
+        height: 150,
+        colorDark: "#000000",
+        colorLight: "#ffffff",
+        correctLevel: QRCode.CorrectLevel.H
+    });
 });
 
 socket.on('status_update', (status) => {
@@ -31,11 +37,13 @@ socket.on('status_update', (status) => {
     } else {
         loginView.style.display = 'block';
         connectedView.style.display = 'none';
-        qrcodeContainer.innerHTML = '<p>Aguardando QR Code...</p>';
+        // Mensagem padrão se o bot estiver esperando o QR
+        if (status.type !== 'qr_sent') {
+            qrcodeContainer.innerHTML = '<p>Aguardando QR Code...</p>';
+        }
     }
 });
 
-// ALTERADO: Lógica de log aprimorada
 socket.on('log', (message) => {
     const now = new Date();
     const timestamp = now.toLocaleTimeString();
@@ -51,5 +59,5 @@ socket.on('log', (message) => {
     }
 });
 
-// Mensagem inicial para confirmar que o frontend está pronto
+// Mensagem inicial 
 logsContainer.textContent = 'Aguardando conexão com o servidor do bot...';

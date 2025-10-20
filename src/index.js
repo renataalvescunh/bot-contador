@@ -3,7 +3,6 @@
 // =====================================
 
 // --- Módulos do Servidor Web ---
-// NOVO: Módulos para criar o servidor
 const express = require('express');
 const http = require('http');
 const {
@@ -17,8 +16,6 @@ const {
     LocalAuth
 } = require('whatsapp-web.js');
 const cron = require('node-cron');
-// ALTERADO: Não precisamos mais do qrcode-terminal
-// const qrcode = require('qrcode-terminal');
 
 // =====================================
 // 🥅 REDE DE SEGURANÇA (CATCH-ALL)
@@ -37,21 +34,19 @@ const httpServer = http.createServer(app);
 const io = new Server(httpServer);
 const PORT = 3000;
 
-// NOVO: Servir os arquivos estáticos da pasta 'public' (seu HTML, CSS, JS do frontend)
+// Serve os arquivos estáticos da pasta 'public' (seu HTML, CSS, JS do frontend)
 const publicPath = path.join(__dirname, '..', 'public');
 app.use(express.static(publicPath));
 
 // --- Variáveis Globais ---
-// NOVO: Variável para guardar a conexão com a página web
 let socketClient = null;
 const config = require('../config/config.json');
 
 // --- Funções de Comunicação com a UI ---
-// NOVO: Função centralizada para enviar logs para o console E para a UI
 function sendLog(message) {
-    console.log(message); // Mantém o log no terminal
+    console.log(message); 
     if (socketClient) {
-        socketClient.emit('log', message); // Envia o log para a página web
+        socketClient.emit('log', message); 
     }
 }
 
@@ -64,15 +59,10 @@ function sendStatus(status) {
 
 // --- Configuração do Cliente WhatsApp ---
 const client = new Client({
-    authStrategy: new LocalAuth(),
-    puppeteer: {
-        headless: true,
-        args: ['--no-sandbox', '--disable-setuid-sandbox']
-    }
+    authStrategy: new LocalAuth()
 });
 
 // --- Lógica de Conexão com a UI ---
-// NOVO: Bloco principal que gerencia a conexão com a página web
 io.on('connection', (socket) => {
     sendLog("🔌 Painel de controle conectado!");
     socketClient = socket;
@@ -83,8 +73,6 @@ io.on('connection', (socket) => {
         socketClient = null;
     });
 
-    // Inicia o bot do WhatsApp APENAS quando o painel está conectado
-    // Isso evita que o bot rode sem uma interface para controlá-lo
     if (!client.info) { // Garante que o bot só seja inicializado uma vez
         client.initialize();
     }
@@ -93,7 +81,6 @@ io.on('connection', (socket) => {
 
 // --- Eventos do Cliente WhatsApp (Adaptados para a UI) ---
 
-// ALTERADO: Envia o QR Code para a UI em vez do terminal
 client.on('qr', qr => {
     sendLog('📱 QR Code recebido, enviando para o painel...');
     if (socketClient) {
@@ -106,7 +93,6 @@ client.on('qr', qr => {
     });
 });
 
-// ALTERADO: Envia o status de "pronto" para a UI
 client.on('ready', () => {
     sendLog('✅ Bot-Contador conectado e funcionando com segurança!');
     sendStatus({
@@ -119,7 +105,6 @@ client.on('ready', () => {
     agendarHealthCheck();
 });
 
-// ALTERADO: Envia o status de "desconectado" para a UI
 client.on('disconnected', (reason) => {
     sendLog(`❌ Bot foi desconectado! Motivo: ${reason}`);
     sendStatus({
@@ -201,7 +186,6 @@ client.on('group_leave', async (notification) => {
 
 
 // --- Inicialização do Servidor ---
-// NOVO: Inicia o servidor web para que a página possa ser acessada
 httpServer.listen(PORT, () => {
     console.log(`🚀 Servidor do painel iniciado! Acesse em http://localhost:${PORT}`);
 });
