@@ -5,15 +5,18 @@
     <meta charset="UTF-8">
     <title>Bot-Contador</title>
     <script>
-        // Redireciona imediatamente para a pasta public
-        window.location.replace("./public/index.html");
+        // Pega o caminho atual do site (com o nome do repositório) e adiciona a pasta public
+        var currentPath = window.location.pathname;
+        if (!currentPath.endsWith('/')) {
+            currentPath += '/';
+        }
+        window.location.replace(window.location.origin + currentPath + "public/index.html");
     </script>
 </head>
 
 <body>
     <noscript>
-        <meta http-equiv="refresh" content="0; url=./public/index.html">
-        <p>Se você não for redirecionado, <a href="./public/index.html">clique aqui</a>.</p>
+        <p>Se você não for redirecionado automaticamente, por favor <a href="./public/index.html">clique aqui</a>.</p>
     </noscript>
 </body>
 
